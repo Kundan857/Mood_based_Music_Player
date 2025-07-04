@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoodTone | Mood Music Player</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Add this right after <body> -->
+    <div id="audio-permission" class="permission-box">
+        <p>Click to enable audio playback</p>
+        <button id="enable-audio">Enable Audio</button>
+    </div>
+
+    <!-- Animated Particles Background -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Main Container -->
+    <div class="player-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">MOODTONE</div>
+                <h1>AUDIO PLAYER</h1>   
+            </div>
+            
+            <!-- Mood Selection -->
+            <div class="mood-selection">
+                <h3><i class="fas fa-heart"></i> SELECT MOOD</h3>
+                <div class="moods">
+                    <button class="mood-btn" data-mood="happy">
+                        <i class="fas fa-smile"></i>
+                        <span>Happy</span>
+                        <div class="mood-indicator"></div>
+                    </button>
+                    <button class="mood-btn" data-mood="sad">
+                        <i class="fas fa-sad-tear"></i>
+                        <span>Sad</span>
+                        <div class="mood-indicator"></div>
+                    </button>
+                    <button class="mood-btn" data-mood="chill">
+                        <i class="fas fa-umbrella-beach"></i>
+                        <span>Chill</span>
+                        <div class="mood-indicator"></div>
+                    </button>
+                    <button class="mood-btn" data-mood="energetic">
+                        <i class="fas fa-bolt"></i>
+                        <span>Energetic</span>
+                        <div class="mood-indicator"></div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Playlist -->
+            <div class="playlist">
+                <h3><i class="fas fa-list"></i> NOW PLAYING</h3>
+                <div class="songs" id="songs-container"></div>
+            </div>
+        </div>
+
+        <!-- Main Player -->
+        <div class="main-player">
+            <!-- Vinyl Disc -->
+            <div class="vinyl-container">
+                <div class="vinyl" id="vinyl">
+                    <div class="vinyl-inner">
+                        <div class="vinyl-label"></div>
+                    </div>
+                </div>
+                <div class="album-art" id="album-art">
+                    <img src="images/aaj-ki-raat.jpg" alt="Album cover">
+                </div>
+            </div>
+
+            <!-- Song Info -->
+            <div class="song-info">
+                <h2 id="song-title">Select Your Mood</h2>
+                <p id="song-artist">NEO Player</p>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-container">
+                <div class="waveform" id="waveform">
+                    <div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
+                </div>
+                <input type="range" id="progress-bar" min="0" max="100" value="0">
+                <div class="time">
+                    <span id="current-time">0:00</span>
+                    <span id="total-time">3:30</span>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="controls">
+                <button id="shuffle-btn" class="control-btn">
+                    <i class="fas fa-random"></i>
+                </button>
+                <button id="prev-btn" class="control-btn">
+                    <i class="fas fa-step-backward"></i>
+                </button>
+                <button id="play-btn" class="control-btn play-pause">
+                    <i class="fas fa-play"></i>
+                </button>
+                <button id="next-btn" class="control-btn">
+                    <i class="fas fa-step-forward"></i>
+                </button>
+                <button id="repeat-btn" class="control-btn">
+                    <i class="fas fa-redo"></i>
+                </button>
+            </div>
+
+            <!-- Volume Control -->
+            <div class="volume-control">
+                <i class="fas fa-volume-up"></i>
+                <input type="range" id="volume-bar" min="0" max="100" value="50">
+            </div>
+        </div>
+    </div>
+
+    <!-- Hidden Audio Element -->
+    <audio id="audio-player" hidden></audio>
+
+    <!-- Theme Toggle -->
+    <button id="theme-toggle">
+        <i class="fas fa-magic"></i>
+    </button>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
